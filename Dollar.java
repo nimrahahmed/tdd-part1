@@ -2,14 +2,17 @@ package tddpart1;
 
 public class Dollar extends Money {
 
+	//private String currency;
 
-	Dollar(int amount) {
-		this.amount= amount;
-	}
-	
-	Money times(int multiplier) {
-		return new Dollar(amount * multiplier);
+	/*String currency() {
+		return currency;
+	}*/
+	Dollar(int amount, String currency) {
+		super(amount, currency);
 		}
+	Money times(int multiplier) {
+		return Money.dollar(amount * multiplier);
+	}
 
 	/*public boolean equals(Object object) {
 		Money money= (Money) object;
