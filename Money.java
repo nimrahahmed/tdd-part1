@@ -43,7 +43,17 @@ public class Money implements Expression{
 	Expression plus(Money addend) {
 		return new Sum(this, addend);
 		}
-	public Money reduce(String to) {
+	/*public Money reduce(String to) {
 		return this;
+		}*/
+	/*public Money reduce(Bank bank, String to) {
+		int rate = (currency.equals("CHF") && to.equals("USD"))
+		? 2
+		: 1;
+		return new Money(amount / rate, to);
+		}*/
+	public Money reduce(Bank bank, String to) {
+		int rate = bank.rate(currency, to);
+		return new Money(amount / rate, to);
 		}
 }
