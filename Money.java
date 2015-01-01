@@ -31,7 +31,10 @@ public class Money implements Expression{
 	public String toString() {
 		return amount + " " + currency;
 		}
-	Money times(int multiplier) {
+	/*Money times(int multiplier) {
+		return new Money(amount * multiplier, currency);
+		}*/
+	Expression times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 		}
 	/*Money plus(Money addend) {
@@ -56,4 +59,11 @@ public class Money implements Expression{
 		int rate = bank.rate(currency, to);
 		return new Money(amount / rate, to);
 		}
+	/*Expression plus(Expression addend) {
+		return new Sum(this, addend);
+				}*/
+	public Expression plus(Expression addend) {
+		return new Sum(this, addend);
+		}
+	
 }
